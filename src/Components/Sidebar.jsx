@@ -5,7 +5,7 @@ function SideBar() {
     <aside className="sidebar">
       {links.map((link) => {
         return (
-          <Button className="sidebar__btn">
+          <Button className="sidebar__btn" key={link.name}>
             {link.svg}
             <p>{link.name}</p>
           </Button>

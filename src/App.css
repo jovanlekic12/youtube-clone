@@ -21,7 +21,7 @@ body {
   padding: 2rem;
 }
 
-.home__link {
+a {
   text-decoration: none;
   color: #fff;
 }
@@ -116,4 +116,69 @@ body {
 
 .sidebar__btn p {
   font-size: 1.6rem;
+}
+
+.main__heading {
+  color: #fff;
+  font-size: 2.8rem;
+  grid-column: 2;
+  margin-bottom: 1rem;
+}
+
+.main__heading span {
+  color: red;
+}
+
+.main__container {
+  grid-gap: 2rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 10fr;
+  height: 100vh;
+  padding: 1.8rem 1.6rem;
+}
+
+.video__section {
+  grid-gap: 1.2rem;
+  color: #fff;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.video__card {
+  background-color: #1a1a1a;
+  cursor: pointer;
+  width: 100%;
+}
+
+.video__card__thumbnail {
+  display: block;
+  height: 20rem;
+  width: 100%;
+}
+
+.video__card__description {
+  min-height: 12rem;
+  padding: 1rem;
+}
+
+.video__card__title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.video__card__channel {
+  color: #aaa;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+.video__card__formated__date {
+  color: #e6e6e6;
+  font-size: 1.4rem;
 }
