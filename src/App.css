@@ -79,3 +79,41 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  min-width: 17.5rem;
+}
+
+.sidebar__btn {
+  align-items: center;
+  background-color: #000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.sidebar__btn:hover {
+  background-color: red;
+  border-radius: 1.625rem;
+}
+
+.sidebar__btn:hover > svg {
+  color: #fff;
+}
+
+.sidebar__btn svg {
+  color: red;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.sidebar__btn p {
+  font-size: 1.6rem;
+}
