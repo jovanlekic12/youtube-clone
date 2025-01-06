@@ -156,7 +156,7 @@ a {
 }
 
 .video__card {
-  background-color: #1a1a1a;
+  background-color: #1f1f1f;
   cursor: pointer;
   width: 100%;
 }
@@ -259,5 +259,17 @@ a {
   }
   .search__form {
     min-width: 20rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .search__form {
+    min-width: 2rem;
+  }
+  .search__input {
+    max-width: 8rem;
+  }
+  .video__section {
+    width: 100%;
   }
 }

@@ -15,6 +15,8 @@ function Home({
     <div className="container">
       {/* //share layout */}
       <Navbar
+        setIndex={setIndex}
+        setPage={setPage}
         setSearchValue={setSearchValue}
         handleSubmit={handleSubmit}
         searchValue={searchValue}

@@ -4,7 +4,9 @@ import { formatDistanceToNow } from "date-fns";
 
 function VideoSection({ page }) {
   const [items, setItems] = useState([]);
-  const url = `https://youtube-v31.p.rapidapi.com/search?q=${page}&part=snippet,id&maxResults=24&regionCode=US`;
+  const url = `https://youtube-v31.p.rapidapi.com/search?q=${
+    page === "Home" ? "New" : page
+  }&part=snippet,id&maxResults=24&regionCode=US`;
   const fetchHomeData = async () => {
     try {
       const response = await fetch(url, {

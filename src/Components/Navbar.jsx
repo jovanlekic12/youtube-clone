@@ -3,10 +3,22 @@ import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { IoIosSearch } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
-function Navbar({ handleSubmit, setSearchValue, searchValue }) {
+function Navbar({
+  setPage,
+  setIndex,
+  handleSubmit,
+  setSearchValue,
+  searchValue,
+}) {
   return (
     <nav className="navbar">
-      <Link to="/" className="home__link">
+      <Link
+        to="/"
+        className="home__link"
+        onClick={() => {
+          setIndex(0), setPage("Home"), setSearchValue("");
+        }}
+      >
         <div className="logo__div">
           <FaYoutube></FaYoutube>
           <p>YouTube</p>
