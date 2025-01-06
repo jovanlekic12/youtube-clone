@@ -2,10 +2,9 @@ import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 
-function VideoSection() {
+function VideoSection({ page }) {
   const [items, setItems] = useState([]);
-  const url =
-    "https://youtube-v31.p.rapidapi.com/search?q=New&part=snippet,id&maxResults=24&regionCode=US";
+  const url = `https://youtube-v31.p.rapidapi.com/search?q=${page}&part=snippet,id&maxResults=24&regionCode=US`;
   const fetchHomeData = async () => {
     try {
       const response = await fetch(url, {
@@ -22,7 +21,7 @@ function VideoSection() {
   };
   useEffect(() => {
     fetchHomeData();
-  }, []);
+  }, [page]);
 
   console.log(items);
 
@@ -39,7 +38,7 @@ function VideoSection() {
               <div className="video__card">
                 <img
                   className="video__card__thumbnail"
-                  src={item.snippet.thumbnails.default.url}
+                  src={item.snippet.thumbnails.high.url}
                   alt={item.snippet.title}
                 />
                 <div className="video__card__description">

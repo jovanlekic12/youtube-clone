@@ -97,6 +97,7 @@ a {
   display: flex;
   gap: 1rem;
   padding: 0.4rem 0.8rem;
+  border-radius: 1.625rem;
 }
 
 .sidebar__btn:hover {
@@ -114,6 +115,13 @@ a {
   width: 2.4rem;
 }
 
+.sidebar__btn__active {
+  background-color: red;
+}
+
+.sidebar__btn__active svg {
+  color: #fff;
+}
 .sidebar__btn p {
   font-size: 1.6rem;
 }

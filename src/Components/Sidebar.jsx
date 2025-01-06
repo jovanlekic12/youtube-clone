@@ -1,11 +1,21 @@
 import links from "../assets/links";
 import Button from "../UI/Button";
-function SideBar() {
+function SideBar({ setIndex, setPage, index }) {
   return (
     <aside className="sidebar">
-      {links.map((link) => {
+      {links.map((link, itemIndex) => {
         return (
-          <Button className="sidebar__btn" key={link.name}>
+          <Button
+            className={
+              index === itemIndex
+                ? "sidebar__btn sidebar__btn__active"
+                : "sidebar__btn"
+            }
+            key={link.name}
+            onClick={() => {
+              setIndex(itemIndex), setPage(link.name);
+            }}
+          >
             {link.svg}
             <p>{link.name}</p>
           </Button>
