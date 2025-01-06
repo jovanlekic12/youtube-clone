@@ -2,24 +2,15 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import SideBar from "../Sidebar";
 import VideoSection from "../VideoSection";
-function Home({
-  index,
-  page,
-  setIndex,
-  setPage,
-  setSearchValue,
-  searchValue,
-  handleSubmit,
-}) {
+function Home({ index, page, setIndex, setPage, handleSubmit, searchParams }) {
   return (
     <div className="container">
       {/* //share layout */}
       <Navbar
         setIndex={setIndex}
         setPage={setPage}
-        setSearchValue={setSearchValue}
         handleSubmit={handleSubmit}
-        searchValue={searchValue}
+        searchParams={searchParams}
       ></Navbar>
       <main className="main__container">
         <h1 className="main__heading">
@@ -30,7 +21,7 @@ function Home({
           page={page}
           setIndex={setIndex}
           setPage={setPage}
-          setSearchValue={setSearchValue}
+          searchParams={searchParams}
         ></SideBar>
         <VideoSection page={page}></VideoSection>
       </main>

@@ -1,18 +1,21 @@
 import "./App.css";
 import { useState } from "react";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useSearchParams } from "react-router";
 import Home from "./Components/pages/Home";
 import links from "./assets/links";
 function App() {
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(links[index].name);
-
-  const [searchValue, setSearchValue] = useState("");
+  //kad ukucam nesto u search u url upisem to sto sam ukucao
+  //onda aktiviram submit event i unutar toga submit eventa procitam te paramatre
+  // sad imam search bez da imam state??
+  //pogledaj router setParams i useParams
+  const [searchParams, setSearchParmas] = useSearchParams();
 
   function handleSubmit(event) {
     event.preventDefault();
     setIndex(0);
-    setPage(searchValue);
+    setPage(searchParams);
   }
 
   return (
@@ -26,8 +29,7 @@ function App() {
             setIndex={setIndex}
             setPage={setPage}
             handleSubmit={handleSubmit}
-            setSearchValue={setSearchValue}
-            searchValue={searchValue}
+            searchParams={searchParams}
           />
         }
       />
