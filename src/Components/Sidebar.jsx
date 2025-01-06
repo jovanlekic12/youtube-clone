@@ -1,6 +1,6 @@
 import links from "../assets/links";
 import Button from "../UI/Button";
-function SideBar({ setIndex, setPage, index }) {
+function SideBar({ setIndex, setPage, index, setSearchValue }) {
   return (
     <aside className="sidebar">
       {links.map((link, itemIndex) => {
@@ -13,7 +13,7 @@ function SideBar({ setIndex, setPage, index }) {
             }
             key={link.name}
             onClick={() => {
-              setIndex(itemIndex), setPage(link.name);
+              setIndex(itemIndex), setPage(link.name), setSearchValue("");
             }}
           >
             {link.svg}

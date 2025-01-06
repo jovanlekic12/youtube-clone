@@ -23,8 +23,6 @@ function VideoSection({ page }) {
     fetchHomeData();
   }, [page]);
 
-  console.log(items);
-
   return (
     <section className="video__section">
       {items &&

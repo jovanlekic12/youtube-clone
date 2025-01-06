@@ -115,13 +115,14 @@ a {
   width: 2.4rem;
 }
 
+.sidebar__btn__active svg {
+  color: #fff;
+}
+
 .sidebar__btn__active {
   background-color: red;
 }
 
-.sidebar__btn__active svg {
-  color: #fff;
-}
 .sidebar__btn p {
   font-size: 1.6rem;
 }
@@ -204,7 +205,6 @@ a {
 @media (max-width: 1200px) {
   .sidebar__btn {
     align-items: center;
-    background-color: #000;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -218,6 +218,7 @@ a {
     align-items: center;
     width: fit-content;
     min-width: 5rem;
+    gap: 1rem;
   }
 }
 
