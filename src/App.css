@@ -161,10 +161,27 @@ a {
   width: 100%;
 }
 
+.channel__card {
+  background-color: #1f1f1f;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
 .video__card__thumbnail {
+  display: block;
+  height: 22rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.channel__card__thumbnail {
   display: block;
   height: 20rem;
   width: 100%;
+  -webkit-clip-path: circle();
+  clip-path: circle();
+  object-fit: contain;
 }
 
 .video__card__description {
@@ -173,6 +190,21 @@ a {
 }
 
 .video__card__title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.channel__card__title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.channel__card__description {
   color: #fff;
   font-size: 1.6rem;
   font-weight: 600;

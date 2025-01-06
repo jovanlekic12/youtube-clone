@@ -35,26 +35,47 @@ function VideoSection({ page }) {
               to={`/video/${item.id.videoId}`}
               key={item.id.videoId}
             >
-              <div className="video__card">
+              <div
+                className={
+                  item.id.kind === "youtube#channel"
+                    ? "channel__card"
+                    : "video__card"
+                }
+              >
                 <img
-                  className="video__card__thumbnail"
+                  className={
+                    item.id.kind === "youtube#channel"
+                      ? "channel__card__thumbnail"
+                      : "video__card__thumbnail"
+                  }
                   src={item.snippet.thumbnails.high.url}
                   alt={item.snippet.title}
                 />
-                <div className="video__card__description">
-                  <h5 className="video__card__title">
-                    {item.snippet.title.length > 80
-                      ? item.snippet.title.slice(0, 80) + "..."
-                      : item.snippet.title}
-                  </h5>
-                  <p className="video__card__channel">
-                    {item.snippet.channelTitle}
-                  </p>
-                  <p className="video__card__formated__date">
-                    {formatDistanceToNow(new Date(item.snippet.publishTime))}{" "}
-                    ago
-                  </p>
-                </div>
+                {item.id.kind === "youtube#channel" ? (
+                  <div className="video__card__description">
+                    <h5 className="channel__card__title">
+                      {item.snippet.channelTitle}
+                    </h5>
+                    <p className="channel__card__description">
+                      {item.snippet.description}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="video__card__description">
+                    <h5 className="video__card__title">
+                      {item.snippet.title.length > 80
+                        ? item.snippet.title.slice(0, 80) + "..."
+                        : item.snippet.title}
+                    </h5>
+                    <p className="video__card__channel">
+                      {item.snippet.channelTitle}
+                    </p>
+                    <p className="video__card__formated__date">
+                      {formatDistanceToNow(new Date(item.snippet.publishTime))}{" "}
+                      ago
+                    </p>
+                  </div>
+                )}
               </div>
             </Link>
           );
