@@ -258,6 +258,20 @@ a {
   text-align: center;
 }
 
+.react__player {
+  height: 77vh !important;
+  margin-bottom: 1.6rem;
+  width: 100% !important;
+}
+
+.video__container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 5fr 1.5fr;
+  margin: 0 auto;
+  width: 130rem;
+}
+
 @media (max-width: 1500px) {
   .video__section {
     grid-gap: 1.2rem;
@@ -265,6 +279,9 @@ a {
     display: grid;
     gap: 1.2rem;
     grid-template-columns: repeat(3, 1fr);
+  }
+  .channel__container {
+    width: 80%;
   }
 }
 
@@ -295,6 +312,9 @@ a {
     display: grid;
     gap: 1.2rem;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .channel__container {
+    width: 90%;
   }
 }
 
