@@ -224,6 +224,40 @@ a {
   font-size: 1.4rem;
 }
 
+.channel__container {
+  height: 100vh;
+  width: 60%;
+  margin: 2rem auto;
+}
+
+.channel__info__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.channel__info__photo {
+  clip-path: circle();
+  margin-bottom: 1.2em;
+  width: 30%;
+  max-width: 25rem;
+}
+
+.channel__info__name {
+  color: #aaa;
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.channel__info__description {
+  color: #e6e6e6;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 3.6rem;
+  text-align: center;
+}
+
 @media (max-width: 1500px) {
   .video__section {
     grid-gap: 1.2rem;

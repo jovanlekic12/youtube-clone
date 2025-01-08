@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Route, Routes, useSearchParams } from "react-router";
 import Home from "./Components/pages/Home";
 import links from "./assets/links";
+import Channel from "./Components/pages/Channel";
 function App() {
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(links[index].name);
@@ -10,7 +11,7 @@ function App() {
   //onda aktiviram submit event i unutar toga submit eventa procitam te paramatre
   // sad imam search bez da imam state??
   //pogledaj router setParams i useParams
-  const [searchParams, setSearchParmas] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,6 +27,17 @@ function App() {
           <Home
             index={index}
             page={page}
+            setIndex={setIndex}
+            setPage={setPage}
+            handleSubmit={handleSubmit}
+            searchParams={searchParams}
+          />
+        }
+      />
+      <Route
+        path="channel/:id"
+        element={
+          <Channel
             setIndex={setIndex}
             setPage={setPage}
             handleSubmit={handleSubmit}

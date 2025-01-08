@@ -2,10 +2,10 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import SideBar from "../Sidebar";
 import VideoSection from "../VideoSection";
+import { Outlet } from "react-router";
 function Home({ index, page, setIndex, setPage, handleSubmit, searchParams }) {
   return (
     <div className="container">
-      {/* //share layout */}
       <Navbar
         setIndex={setIndex}
         setPage={setPage}

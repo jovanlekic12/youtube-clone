@@ -13,7 +13,7 @@ function SideBar({ setIndex, setPage, index, searchParams }) {
             }
             key={link.name}
             onClick={() => {
-              setIndex(itemIndex), searchParams.set("link", link.name);
+              setIndex(itemIndex), setPage(link.name);
             }}
           >
             {link.svg}
