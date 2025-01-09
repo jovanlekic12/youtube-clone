@@ -18,7 +18,10 @@ function Comment(props) {
           </h5>
           <span className="formated__date__comment">
             {" "}
-            {formatDistanceToNow(new Date(topLevelComment.snippet.publishedAt))}
+            {formatDistanceToNow(
+              new Date(topLevelComment.snippet.publishedAt)
+            )}{" "}
+            ago
           </span>
         </header>
         <p className="comment__text">{topLevelComment.snippet.textDisplay}</p>

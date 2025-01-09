@@ -1,6 +1,9 @@
 import links from "../assets/links";
 import Button from "../UI/Button";
-function SideBar({ setIndex, setPage, index, searchParams }) {
+import { useSearchParams } from "react-router";
+
+function SideBar({ setIndex, index }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   return (
     <aside className="sidebar">
       {links.map((link, itemIndex) => {
@@ -13,7 +16,9 @@ function SideBar({ setIndex, setPage, index, searchParams }) {
             }
             key={link.name}
             onClick={() => {
-              setIndex(itemIndex), setPage(link.name);
+              setIndex(itemIndex);
+              searchParams.set("page", link.name);
+              setSearchParams(searchParams);
             }}
           >
             {link.svg}

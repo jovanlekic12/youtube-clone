@@ -1,12 +1,16 @@
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import VideoLink from "../UI/VideoLink";
-
-function VideoSection({ page }) {
+import { useSearchParams } from "react-router";
+function VideoSection() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [items, setItems] = useState([]);
+  const page = searchParams.get("page");
+
   const url = `https://youtube-v31.p.rapidapi.com/search?q=${
     page === "Home" ? "New" : page
   }&part=snippet,id&maxResults=24&regionCode=US`;
+
   const fetchHomeData = async () => {
     try {
       const response = await fetch(url, {
@@ -23,6 +27,8 @@ function VideoSection({ page }) {
   };
   useEffect(() => {
     fetchHomeData();
+    searchParams.set("page", "Home");
+    setSearchParams(searchParams);
   }, [page]);
 
   return (

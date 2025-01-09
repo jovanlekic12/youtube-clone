@@ -1,29 +1,18 @@
-import { useState } from "react";
 import Navbar from "../Navbar";
 import SideBar from "../Sidebar";
 import VideoSection from "../VideoSection";
-import { Outlet } from "react-router";
-function Home({ index, page, setIndex, setPage, handleSubmit, searchParams }) {
+function Home({ index, setIndex, handleSubmit, searchParams }) {
+  const page = searchParams.get("page");
+
   return (
     <div className="container">
-      <Navbar
-        setIndex={setIndex}
-        setPage={setPage}
-        handleSubmit={handleSubmit}
-        searchParams={searchParams}
-      ></Navbar>
+      <Navbar setIndex={setIndex} handleSubmit={handleSubmit}></Navbar>
       <main className="main__container">
         <h1 className="main__heading">
           {index === 0 ? "New" : page} <span>videos</span>
         </h1>
-        <SideBar
-          index={index}
-          page={page}
-          setIndex={setIndex}
-          setPage={setPage}
-          searchParams={searchParams}
-        ></SideBar>
-        <VideoSection page={page}></VideoSection>
+        <SideBar index={index} setIndex={setIndex}></SideBar>
+        <VideoSection></VideoSection>
       </main>
     </div>
   );

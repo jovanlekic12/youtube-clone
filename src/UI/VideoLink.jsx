@@ -2,7 +2,9 @@ import { Link } from "react-router";
 import { formatDistanceToNow } from "date-fns";
 
 function VideoLink(props) {
-  const { id, snippet } = props;
+  const { id, snippet, type } = props;
+  const relatedClass = type;
+
   return (
     <Link
       className="video__card__link"
@@ -14,14 +16,16 @@ function VideoLink(props) {
     >
       <div
         className={
-          id.kind === "youtube#channel" ? "channel__card" : "video__card"
+          id.kind === "youtube#channel"
+            ? "channel__card"
+            : `video__card ${relatedClass}__video__card`
         }
       >
         <img
           className={
             id.kind === "youtube#channel"
               ? "channel__card__thumbnail"
-              : "video__card__thumbnail"
+              : `video__card__thumbnail ${relatedClass}__video__card__thumbnail`
           }
           src={snippet.thumbnails.high.url}
           alt={snippet.title}

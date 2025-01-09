@@ -3,7 +3,15 @@ import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { IoIosSearch } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
-function Navbar({ setPage, setIndex, handleSubmit, searchParams }) {
+import { useSearchParams } from "react-router";
+function Navbar({ setIndex }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setIndex(0);
+    setSearchParams(searchParams);
+  }
   return (
     <nav className="navbar">
       <Link
@@ -23,7 +31,9 @@ function Navbar({ setPage, setIndex, handleSubmit, searchParams }) {
           type="text"
           placeholder="Search..."
           className="search__input"
-          onChange={(event) => searchParams.set("search", event.target.value)}
+          onChange={(event) => {
+            searchParams.set("search", event.target.value);
+          }}
         ></Input>
         <Button type="button" className="search__form__btn">
           <IoIosSearch />

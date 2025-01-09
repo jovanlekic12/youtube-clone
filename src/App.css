@@ -418,13 +418,13 @@ a {
   .video__container {
     padding: 0 5rem;
   }
-  .video__card__thumbnail {
+  .related__video__card__thumbnail {
     height: auto;
     width: 100%;
     max-width: 25rem;
-    object-fit: cover;
+    object-fit: cover !important;
   }
-  .video__card {
+  .related__video__card {
     display: flex;
     align-items: center;
     height: fit-content;
