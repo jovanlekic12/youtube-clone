@@ -264,12 +264,98 @@ a {
   width: 100% !important;
 }
 
+.video__stats {
+  margin-bottom: 3.2rem;
+}
+
 .video__container {
   display: grid;
   gap: 2rem;
   grid-template-columns: 5fr 1.5fr;
   margin: 0 auto;
   width: 130rem;
+}
+
+.video__title {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.video__stats__info {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.video__views {
+  font-size: 1.6rem;
+}
+
+.video__right__side {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.video__right__side__block {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.video__right__side__button {
+  align-items: center;
+  background-color: #000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.video__right__side__button p,
+.video__right__side__button svg,
+.video__likes {
+  font-size: 1.6rem;
+}
+
+.comment {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.comment__author__photo {
+  border-radius: 50%;
+  height: 4.2rem;
+  width: 4.2rem;
+}
+
+.comment__author__info {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment__author__username {
+  color: #aaa;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.comment__author__info span {
+  color: #e6e6e6;
+  font-size: 1.2rem;
+}
+
+.comment__text {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
 }
 
 @media (max-width: 1500px) {
@@ -315,6 +401,33 @@ a {
   }
   .channel__container {
     width: 90%;
+  }
+  .video__container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: fit-content;
+  }
+  .related__videos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .video__container {
+    padding: 0 5rem;
+  }
+  .video__card__thumbnail {
+    height: auto;
+    width: 100%;
+    max-width: 25rem;
+    object-fit: cover;
+  }
+  .video__card {
+    display: flex;
+    align-items: center;
+    height: fit-content;
   }
 }
 
