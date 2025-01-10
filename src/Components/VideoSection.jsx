@@ -6,12 +6,14 @@ function VideoSection() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [items, setItems] = useState([]);
   const page = searchParams.get("page");
-
-  const url = `https://youtube-v31.p.rapidapi.com/search?q=${
+  const search = searchParams.get("search");
+  const url1 = `https://youtube-v31.p.rapidapi.com/search?q=${
     page === "Home" ? "New" : page
   }&part=snippet,id&maxResults=24&regionCode=US`;
 
-  const fetchHomeData = async () => {
+  const url2 = `https://youtube-v31.p.rapidapi.com/search?q=${search}&part=snippet,id&maxResults=24&regionCode=US`;
+
+  const fetchHomeData = async (url) => {
     try {
       const response = await fetch(url, {
         headers: {
@@ -26,10 +28,16 @@ function VideoSection() {
     }
   };
   useEffect(() => {
-    fetchHomeData();
+    fetchHomeData(url1);
     searchParams.set("page", "Home");
+    searchParams.delete("search");
     setSearchParams(searchParams);
   }, [page]);
+
+  useEffect(() => {
+    fetchHomeData(url2);
+    searchParams.delete("page");
+  }, [search]);
 
   return (
     <section className="video__section">
