@@ -27,16 +27,21 @@ function VideoSection() {
       console.log(error);
     }
   };
+
   useEffect(() => {
-    fetchHomeData(url1);
-    searchParams.set("page", "Home");
-    searchParams.delete("search");
-    setSearchParams(searchParams);
+    if (searchParams.get("page")) {
+      fetchHomeData(url1);
+      searchParams.delete("search");
+      setSearchParams(searchParams);
+      console.log("mjau");
+      return;
+    }
   }, [page]);
 
   useEffect(() => {
     fetchHomeData(url2);
     searchParams.delete("page");
+    setSearchParams(searchParams);
   }, [search]);
 
   return (

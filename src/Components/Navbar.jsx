@@ -10,6 +10,7 @@ function Navbar({ setIndex }) {
   function handleSubmit(event) {
     event.preventDefault();
     setIndex(0);
+    setSearchParams(searchParams);
   }
   return (
     <nav className="navbar">
