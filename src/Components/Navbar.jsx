@@ -19,6 +19,9 @@ function Navbar({ setIndex }) {
         onClick={() => {
           setIndex(0);
           searchParams.set("page", "Home");
+          searchParams.delete("search");
+          searchParams.delete("video");
+          searchParams.delete("channel");
           setSearchParams(searchParams);
         }}
       >

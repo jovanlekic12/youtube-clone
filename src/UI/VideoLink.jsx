@@ -1,9 +1,10 @@
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { formatDistanceToNow } from "date-fns";
 
 function VideoLink(props) {
   const { id, snippet, type } = props;
   const relatedClass = type;
+  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <Link
@@ -13,6 +14,10 @@ function VideoLink(props) {
           ? `video/${id.videoId}`
           : `channel/${id.channelId}`
       }
+      onClick={() => {
+        searchParams.set("channel", snippet.channelId);
+        setSearchParams(searchParams);
+      }}
     >
       <div
         className={

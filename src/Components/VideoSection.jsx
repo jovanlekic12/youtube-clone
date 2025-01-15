@@ -29,13 +29,11 @@ function VideoSection() {
   };
 
   useEffect(() => {
-    if (searchParams.get("page")) {
-      fetchHomeData(url1);
-      searchParams.delete("search");
-      setSearchParams(searchParams);
-      console.log("mjau");
-      return;
-    }
+    fetchHomeData(url1);
+    searchParams.delete("search");
+    setSearchParams(searchParams);
+    console.log("mjau");
+    return;
   }, [page]);
 
   useEffect(() => {

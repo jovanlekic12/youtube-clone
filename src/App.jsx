@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Route, Routes, useSearchParams } from "react-router";
 import Home from "./Components/pages/Home";
@@ -13,6 +14,11 @@ function App() {
     setIndex(0);
     setPage(searchParams);
   }
+
+  useEffect(() => {
+    searchParams.set("page", "Home");
+    setSearchParams(searchParams);
+  }, []);
 
   return (
     <Routes>
