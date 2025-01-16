@@ -15,11 +15,6 @@ function App() {
     setPage(searchParams);
   }
 
-  useEffect(() => {
-    searchParams.set("page", "Home");
-    setSearchParams(searchParams);
-  }, []);
-
   return (
     <Routes>
       <Route

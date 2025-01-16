@@ -17,6 +17,7 @@ function SideBar({ setIndex, index }) {
             key={link.name}
             onClick={() => {
               setIndex(itemIndex);
+              searchParams.delete("search");
               searchParams.set("page", link.name);
               setSearchParams(searchParams);
             }}

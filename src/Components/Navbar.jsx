@@ -4,24 +4,26 @@ import Button from "../UI/Button";
 import { IoIosSearch } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
 import { useSearchParams } from "react-router";
+import { useNavigate } from "react-router";
 function Navbar({ setIndex }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const navigate = useNavigate();
+
   function handleSubmit(event) {
     event.preventDefault();
+    searchParams.delete("page");
     setIndex(0);
+
     setSearchParams(searchParams);
   }
   return (
     <nav className="navbar">
       <Link
+        to="/"
         className="home__link"
         onClick={() => {
           setIndex(0);
-          searchParams.set("page", "Home");
-          searchParams.delete("search");
-          searchParams.delete("video");
-          searchParams.delete("channel");
           setSearchParams(searchParams);
         }}
       >
