@@ -14,10 +14,6 @@ function VideoLink(props) {
           ? `video/${id.videoId}`
           : `channel/${id.channelId}`
       }
-      onClick={() => {
-        searchParams.set("channel", snippet.channelId);
-        setSearchParams(searchParams);
-      }}
     >
       <div
         className={

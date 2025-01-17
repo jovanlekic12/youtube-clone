@@ -27,7 +27,6 @@ function VideoPage({ setIndex, setPage, handleSubmit, searchParams }) {
       console.log(error);
     }
   };
-
   const fetchRelatedVideos = async () => {
     try {
       await fetchVideo();

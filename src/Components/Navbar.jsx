@@ -12,6 +12,7 @@ function Navbar({ setIndex }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    navigate("/");
     searchParams.delete("page");
     setIndex(0);
 
