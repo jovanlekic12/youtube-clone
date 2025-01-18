@@ -4,11 +4,13 @@ import Navbar from "../Navbar";
 import VideoLink from "../../UI/VideoLink";
 
 import VideoComments from "../../UI/VideoComments";
-function VideoPage({ setIndex, setPage, handleSubmit, searchParams }) {
+function VideoPage({ setIndex, setPage, searchParams, setSearchTerms }) {
   const [video, setVideo] = useState();
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [comments, setComments] = useState([]);
   let params = useParams();
+
+  console.log(video);
 
   const fetchVideo = async () => {
     try {
@@ -68,7 +70,10 @@ https://youtube-v31.p.rapidapi.com/commentThreads?part=snippet&videoId=${params.
 
   useEffect(() => {
     fetchVideo();
-    fetchVideoComments();
+    if (video.snippet.channelId) {
+      fetchRelatedVideos();
+      fetchVideoComments();
+    }
   }, []);
 
   return (
@@ -76,8 +81,8 @@ https://youtube-v31.p.rapidapi.com/commentThreads?part=snippet&videoId=${params.
       <Navbar
         setIndex={setIndex}
         setPage={setPage}
-        handleSubmit={handleSubmit}
         searchParams={searchParams}
+        setSearchTerms={setSearchTerms}
       ></Navbar>
       {video && (
         <main className="video__container">

@@ -1,5 +1,4 @@
 import "./App.css";
-import { useEffect } from "react";
 import { useState } from "react";
 import { Route, Routes, useSearchParams } from "react-router";
 import Home from "./Components/pages/Home";
@@ -8,12 +7,7 @@ import VideoPage from "./Components/pages/VideoPage";
 function App() {
   const [index, setIndex] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setIndex(0);
-    setPage(searchParams);
-  }
+  const [searchTerms, setSearchTerms] = useState("");
 
   return (
     <Routes>
@@ -22,28 +16,24 @@ function App() {
         element={
           <Home
             index={index}
+            searchTerms={searchTerms}
+            setSearchTerms={setSearchTerms}
             setIndex={setIndex}
-            handleSubmit={handleSubmit}
             searchParams={searchParams}
           />
         }
       />
       <Route
         path="channel/:id"
-        element={
-          <Channel
-            setIndex={setIndex}
-            handleSubmit={handleSubmit}
-            searchParams={searchParams}
-          />
-        }
+        setSearchTerms={setSearchTerms}
+        element={<Channel setIndex={setIndex} searchParams={searchParams} />}
       />
       <Route
         path="video/:id"
         element={
           <VideoPage
+            setSearchTerms={setSearchTerms}
             setIndex={setIndex}
-            handleSubmit={handleSubmit}
             searchParams={searchParams}
           />
         }

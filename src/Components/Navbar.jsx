@@ -1,22 +1,21 @@
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { IoIosSearch } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
 import { useSearchParams } from "react-router";
 import { useNavigate } from "react-router";
-function Navbar({ setIndex }) {
-  const [searchParams, setSearchParams] = useSearchParams();
-
+import { useState } from "react";
+function Navbar({ setIndex, setSearchTerms }) {
   const navigate = useNavigate();
+  const [searchInput, setSearchInput] = useState();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   function handleSubmit(event) {
     event.preventDefault();
-    navigate("/");
-    searchParams.delete("page");
     setIndex(0);
-
-    setSearchParams(searchParams);
+    navigate("/");
+    setSearchTerms(searchInput);
   }
   return (
     <nav className="navbar">
@@ -25,6 +24,7 @@ function Navbar({ setIndex }) {
         className="home__link"
         onClick={() => {
           setIndex(0);
+          searchParams.set("page", "Home");
           setSearchParams(searchParams);
         }}
       >
@@ -33,13 +33,18 @@ function Navbar({ setIndex }) {
           <p>YouTube</p>
         </div>
       </Link>
-      <form onSubmit={(event) => handleSubmit(event)} className="search__form">
+      <form
+        onSubmit={(event) => {
+          handleSubmit(event);
+        }}
+        className="search__form"
+      >
         <Input
           type="text"
           placeholder="Search..."
           className="search__input"
           onChange={(event) => {
-            searchParams.set("search", event.target.value);
+            setSearchInput(event.target.value);
           }}
         ></Input>
         <Button type="button" className="search__form__btn">
