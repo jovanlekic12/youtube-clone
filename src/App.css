@@ -14,6 +14,10 @@ body {
   background-color: #000;
 }
 
+.container {
+  width: 100%;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -470,5 +474,19 @@ a {
   }
   .video__section {
     width: 100%;
+  }
+  .video__container {
+    padding: 0;
+    width: 90%;
+    justify-content: center;
+  }
+  .react__player {
+    height: 40rem !important;
+  }
+  .related__video__card {
+    flex-direction: column;
+  }
+  .related__video__card__thumbnail {
+    width: 100% !important;
   }
 }

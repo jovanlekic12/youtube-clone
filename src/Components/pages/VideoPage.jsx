@@ -34,7 +34,7 @@ function VideoPage({ setIndex, setPage, searchParams, setSearchTerms }) {
       await fetchVideo();
       const response = await fetch(
         `
-https://youtube-v31.p.rapidapi.com/search?channelId=${"z"}&part=snippet,id&order=date&maxResults=34`,
+https://youtube-v31.p.rapidapi.com/search?relatedToVideoId=${params.id}&part=snippet,id&order=date&maxResults=34`,
         {
           headers: {
             "x-rapidapi-key":
@@ -69,11 +69,7 @@ https://youtube-v31.p.rapidapi.com/commentThreads?part=snippet&videoId=${params.
   };
 
   useEffect(() => {
-    fetchVideo();
-    if (video.snippet.channelId) {
-      fetchRelatedVideos();
-      fetchVideoComments();
-    }
+    Promise.all([fetchVideo(), fetchRelatedVideos(), fetchVideoComments()]);
   }, []);
 
   return (

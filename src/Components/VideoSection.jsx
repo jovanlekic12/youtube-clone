@@ -28,15 +28,6 @@ function VideoSection({ searchTerms }) {
     }
   };
 
-  // useEffect(() => {
-  //   if (!searchParams.get("page")) {
-  // searchParams.set("page", "Home");
-  // setSearchParams(searchParams);
-  //     fetchHomeData(url1);
-  //     return;
-  //   }
-  // }, []);
-
   useEffect(() => {
     if (search) {
       fetchHomeData(url2);

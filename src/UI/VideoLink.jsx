@@ -14,10 +14,6 @@ function VideoLink(props) {
           ? `video/${id.videoId}`
           : `channel/${id.channelId}`
       }
-      onClick={() => {
-        searchParams.set("channel", snippet.channelId);
-        setSearchParams(searchParams);
-      }}
     >
       <div
         className={
@@ -32,7 +28,7 @@ function VideoLink(props) {
               ? "channel__card__thumbnail"
               : `video__card__thumbnail ${relatedClass}__video__card__thumbnail`
           }
-          src={snippet.thumbnails.high.url}
+          src={snippet?.thumbnails?.high?.url ?? ""}
           alt={snippet.title}
         />
         {id.kind === "youtube#channel" ? (
