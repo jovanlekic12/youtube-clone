@@ -7,6 +7,15 @@ function VideoSection({ searchTerms }) {
   const page = searchParams.get("page");
   const search = searchTerms;
 
+  async function fetchHomeDataApi(url) {
+    const response = await fetch(url, {
+      headers: {
+        "x-rapidapi-key": "fadb7a171cmsh112bc1aa0f920dap1e432cjsn7da29b0294a0",
+      },
+    });
+    const data = await response.json();
+    return data.items;
+  }
   const url1 = `https://youtube-v31.p.rapidapi.com/search?q=${
     page === "Home" || !page ? "New" : page
   }&part=snippet,id&maxResults=24&regionCode=US`;
@@ -15,14 +24,8 @@ function VideoSection({ searchTerms }) {
 
   const fetchHomeData = async (url) => {
     try {
-      const response = await fetch(url, {
-        headers: {
-          "x-rapidapi-key":
-            "fadb7a171cmsh112bc1aa0f920dap1e432cjsn7da29b0294a0",
-        },
-      });
-      const data = await response.json();
-      setItems(data.items);
+      const items = await fetchHomeDataApi(url);
+      setItems(items);
     } catch (error) {
       console.log(error);
     }
