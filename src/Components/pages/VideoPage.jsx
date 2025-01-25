@@ -10,8 +10,6 @@ function VideoPage({ setIndex, setPage, searchParams, setSearchTerms }) {
   const [comments, setComments] = useState([]);
   let params = useParams();
 
-  console.log(video);
-
   const fetchVideo = async () => {
     try {
       const response = await fetch(
